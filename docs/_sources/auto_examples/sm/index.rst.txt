@@ -82,6 +82,23 @@ Synchronous Motor Drives
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="This example simulates sensorless vector control of a 2.2-kW PMSM drive. Square-wave signal inj...">
+
+.. only:: html
+
+  .. image:: /auto_examples/sm/images/thumb/sphx_glr_plot_signal_inj_pmsm_2kw_thumb.png
+    :alt: Vector-controlled 2.2-kW PMSM drive with signal injection
+
+  :ref:`sphx_glr_auto_examples_sm_plot_signal_inj_pmsm_2kw.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Vector-controlled 2.2-kW PMSM drive with signal injection</div>
+    </div>
+
+
+.. raw:: html
+
     </div>
 
 
@@ -92,4 +109,5 @@ Synchronous Motor Drives
    /auto_examples/sm/plot_vector_ctrl_pmsm_2kw
    /auto_examples/sm/plot_flux_vector_syrm_7kw
    /auto_examples/sm/plot_vector_ctrl_syrm_7kw
+   /auto_examples/sm/plot_signal_inj_pmsm_2kw
 

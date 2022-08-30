@@ -76,6 +76,8 @@ Classes
    motulator.SynchronousMotorVectorCtrlPars
    motulator.SynchronousMotorFluxVectorCtrl
    motulator.SynchronousMotorFluxVectorCtrlPars
+   motulator.SynchronousMotorSignalInjectionCtrl
+   motulator.SynchronousMotorSignalInjectionCtrlPars
    motulator.BaseValues
    motulator.Sequence
    motulator.Step
@@ -2276,6 +2278,95 @@ Functions
 
    .. py:attribute:: g
       :annotation: :float
+
+      
+
+
+.. py:class:: SynchronousMotorSignalInjectionCtrl(pars)
+
+   Bases: :py:obj:`motulator.control.common.Ctrl`
+
+   
+   Sensorless control with signal injection for a synchronous motor drive.
+
+   This class interconnects the subsystems of the control system and
+   provides the interface to the solver.
+
+   :param pars: Control parameters.
+   :type pars: SynchronousMotorVectorCtrlPars
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+   .. py:method:: __call__(mdl)
+
+      
+      Run the main control loop.
+
+      :param mdl: Continuous-time model of a synchronous motor drive for getting the
+                  feedback signals.
+      :type mdl: SynchronousMotorDrive
+
+      :returns: * **T_s** (*float*) -- Sampling period.
+                * **d_abc_ref** (*ndarray, shape (3,)*) -- Duty ratio references.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+.. py:class:: SynchronousMotorSignalInjectionCtrlPars
+
+   Bases: :py:obj:`motulator.control.sm_vector.SynchronousMotorVectorCtrlPars`
+
+   
+   Square-wave signal injection parameters.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+   .. py:attribute:: U_inj
+      :annotation: :float = 200
 
       
 

@@ -120,6 +120,7 @@
 <li class="toctree-l2"><a class="reference internal" href="control/im_vector/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">motulator.control.im_vector</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="control/im_vhz/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">motulator.control.im_vhz</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="control/sm_flux_vector/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">motulator.control.sm_flux_vector</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="control/sm_signal_inj/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">motulator.control.sm_signal_inj</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="control/sm_torque/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">motulator.control.sm_torque</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="control/sm_vector/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">motulator.control.sm_vector</span></code></a></li>
 </ul>
@@ -211,6 +212,12 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#motulator.SynchronousMotorFluxVectorCtrlPars" title="motulator.SynchronousMotorFluxVectorCtrlPars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SynchronousMotorFluxVectorCtrlPars</span></code></a></p></td>
 <td><p>Control parameters: flux-vector control for synchronous motor drives.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#motulator.SynchronousMotorSignalInjectionCtrl" title="motulator.SynchronousMotorSignalInjectionCtrl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SynchronousMotorSignalInjectionCtrl</span></code></a></p></td>
+<td><p>Sensorless control with signal injection for a synchronous motor drive.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#motulator.SynchronousMotorSignalInjectionCtrlPars" title="motulator.SynchronousMotorSignalInjectionCtrlPars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SynchronousMotorSignalInjectionCtrlPars</span></code></a></p></td>
+<td><p>Square-wave signal injection parameters.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#motulator.BaseValues" title="motulator.BaseValues"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseValues</span></code></a></p></td>
 <td><p>Base values.</p></td>
@@ -1554,6 +1561,51 @@ feedback signals.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="motulator.SynchronousMotorFluxVectorCtrlPars.g">
 <span class="sig-name descname"><span class="pre">g</span></span><em class="property"><span class="w"> </span><span class="pre">:float</span></em><a class="headerlink" href="#motulator.SynchronousMotorFluxVectorCtrlPars.g" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="motulator.SynchronousMotorSignalInjectionCtrl">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">motulator.</span></span><span class="sig-name descname"><span class="pre">SynchronousMotorSignalInjectionCtrl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/motulator/control/sm_signal_inj.html#SynchronousMotorSignalInjectionCtrl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.SynchronousMotorSignalInjectionCtrl" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="control/common/index.html#motulator.control.common.Ctrl" title="motulator.control.common.Ctrl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">motulator.control.common.Ctrl</span></code></a></p>
+<p>Sensorless control with signal injection for a synchronous motor drive.</p>
+<p>This class interconnects the subsystems of the control system and
+provides the interface to the solver.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pars</strong> (<a class="reference internal" href="#motulator.SynchronousMotorVectorCtrlPars" title="motulator.SynchronousMotorVectorCtrlPars"><em>SynchronousMotorVectorCtrlPars</em></a>) – Control parameters.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="motulator.SynchronousMotorSignalInjectionCtrl.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mdl</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#motulator.SynchronousMotorSignalInjectionCtrl.__call__" title="Permalink to this definition"></a></dt>
+<dd><p>Run the main control loop.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mdl</strong> (<a class="reference internal" href="#motulator.SynchronousMotorDrive" title="motulator.SynchronousMotorDrive"><em>SynchronousMotorDrive</em></a>) – Continuous-time model of a synchronous motor drive for getting the
+feedback signals.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>T_s</strong> (<em>float</em>) – Sampling period.</p></li>
+<li><p><strong>d_abc_ref</strong> (<em>ndarray, shape (3,)</em>) – Duty ratio references.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="motulator.SynchronousMotorSignalInjectionCtrlPars">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">motulator.</span></span><span class="sig-name descname"><span class="pre">SynchronousMotorSignalInjectionCtrlPars</span></span><a class="reference internal" href="../../_modules/motulator/control/sm_signal_inj.html#SynchronousMotorSignalInjectionCtrlPars"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.SynchronousMotorSignalInjectionCtrlPars" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="control/sm_vector/index.html#motulator.control.sm_vector.SynchronousMotorVectorCtrlPars" title="motulator.control.sm_vector.SynchronousMotorVectorCtrlPars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">motulator.control.sm_vector.SynchronousMotorVectorCtrlPars</span></code></a></p>
+<p>Square-wave signal injection parameters.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="motulator.SynchronousMotorSignalInjectionCtrlPars.U_inj">
+<span class="sig-name descname"><span class="pre">U_inj</span></span><em class="property"><span class="w"> </span><span class="pre">:float</span> <span class="pre">=</span> <span class="pre">200</span></em><a class="headerlink" href="#motulator.SynchronousMotorSignalInjectionCtrlPars.U_inj" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>

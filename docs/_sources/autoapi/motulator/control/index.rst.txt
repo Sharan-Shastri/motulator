@@ -37,6 +37,7 @@ Submodules
    im_vector/index.rst
    im_vhz/index.rst
    sm_flux_vector/index.rst
+   sm_signal_inj/index.rst
    sm_torque/index.rst
    sm_vector/index.rst
 
