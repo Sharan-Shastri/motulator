@@ -144,14 +144,28 @@ Synchronous Motor Drives
 
 .. raw:: html
 
+    </div>
+
+Signal Injection
+----------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="This example simulates sensorless vector control of a 2.2-kW PMSM drive. Square-wave signal inj...">
 
 .. only:: html
 
-  .. image:: /auto_examples/sm/images/thumb/sphx_glr_plot_signal_inj_pmsm_2kw_thumb.png
+  .. image:: /auto_examples/sm_with_signal_inj/images/thumb/sphx_glr_plot_signal_inj_pmsm_2kw_thumb.png
     :alt: Vector-controlled 2.2-kW PMSM drive with signal injection
 
-  :ref:`sphx_glr_auto_examples_sm_plot_signal_inj_pmsm_2kw.py`
+  :ref:`sphx_glr_auto_examples_sm_with_signal_inj_plot_signal_inj_pmsm_2kw.py`
 
 .. raw:: html
 
@@ -165,10 +179,10 @@ Synchronous Motor Drives
 
 .. only:: html
 
-  .. image:: /auto_examples/sm/images/thumb/sphx_glr_plot_signal_inj_syrm_7kw_thumb.png
+  .. image:: /auto_examples/sm_with_signal_inj/images/thumb/sphx_glr_plot_signal_inj_syrm_7kw_thumb.png
     :alt: Vector-controlled 6.7-kW SyRM drive with signal injection
 
-  :ref:`sphx_glr_auto_examples_sm_plot_signal_inj_syrm_7kw.py`
+  :ref:`sphx_glr_auto_examples_sm_with_signal_inj_plot_signal_inj_syrm_7kw.py`
 
 .. raw:: html
 
@@ -187,6 +201,7 @@ Synchronous Motor Drives
 
    /auto_examples/im/index.rst
    /auto_examples/sm/index.rst
+   /auto_examples/sm_with_signal_inj/index.rst
 
 
 .. only:: html
