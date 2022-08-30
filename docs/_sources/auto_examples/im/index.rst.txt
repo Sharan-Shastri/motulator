@@ -19,13 +19,13 @@ Induction Motor Drives
 .. only:: html
 
   .. image:: /auto_examples/im/images/thumb/sphx_glr_plot_vhz_ctrl_im_2kw_thumb.png
-    :alt: V/Hz-Controlled 2.2-kW Induction Motor Drive
+    :alt: V/Hz-controlled 2.2-kW induction motor drive
 
   :ref:`sphx_glr_auto_examples_im_plot_vhz_ctrl_im_2kw.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">V/Hz-Controlled 2.2-kW Induction Motor Drive</div>
+      <div class="sphx-glr-thumbnail-title">V/Hz-controlled 2.2-kW induction motor drive</div>
     </div>
 
 
@@ -36,13 +36,13 @@ Induction Motor Drives
 .. only:: html
 
   .. image:: /auto_examples/im/images/thumb/sphx_glr_plot_vector_ctrl_im_2kw_thumb.png
-    :alt: Vector-Controlled 2.2-kW Induction Motor Drive
+    :alt: Vector-controlled 2.2-kW induction motor drive
 
   :ref:`sphx_glr_auto_examples_im_plot_vector_ctrl_im_2kw.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Vector-Controlled 2.2-kW Induction Motor Drive</div>
+      <div class="sphx-glr-thumbnail-title">Vector-controlled 2.2-kW induction motor drive</div>
     </div>
 
 
