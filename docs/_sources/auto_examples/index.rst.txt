@@ -64,6 +64,13 @@ Induction Motor Drives
 
     </div>
 
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/im/plot_vhz_ctrl_im_2kw
+   /auto_examples/im/plot_vector_ctrl_im_2kw
+
 Synchronous Motor Drives
 ------------------------
 
@@ -146,6 +153,15 @@ Synchronous Motor Drives
 
     </div>
 
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/sm/plot_flux_vector_pmsm_2kw
+   /auto_examples/sm/plot_vector_ctrl_pmsm_2kw
+   /auto_examples/sm/plot_flux_vector_syrm_7kw
+   /auto_examples/sm/plot_vector_ctrl_syrm_7kw
+
 Signal Injection
 ----------------
 
@@ -197,11 +213,9 @@ Signal Injection
 
 .. toctree::
    :hidden:
-   :includehidden:
 
-   /auto_examples/im/index.rst
-   /auto_examples/sm/index.rst
-   /auto_examples/sm_with_signal_inj/index.rst
+   /auto_examples/sm_with_signal_inj/plot_signal_inj_pmsm_2kw
+   /auto_examples/sm_with_signal_inj/plot_signal_inj_syrm_7kw
 
 
 .. only:: html
