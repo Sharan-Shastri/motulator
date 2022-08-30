@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vector-controlled 6.7-kW SyRM drive &mdash; motulator 0.0.9 documentation</title>
+  <title>Vector-controlled 6.7-kW SyRM drive with signal injection &mdash; motulator 0.0.9 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
@@ -27,8 +27,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Vector-controlled 2.2-kW PMSM drive with signal injection" href="plot_signal_inj_pmsm_2kw.html" />
-    <link rel="prev" title="Flux-vector-controlled 6.7-kW SyRM drive" href="plot_flux_vector_syrm_7kw.html" /> 
+    <link rel="next" title="API Reference" href="../../autoapi/index.html" />
+    <link rel="prev" title="Vector-controlled 2.2-kW PMSM drive with signal injection" href="plot_signal_inj_pmsm_2kw.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -58,9 +58,9 @@
 <li class="toctree-l4"><a class="reference internal" href="plot_flux_vector_pmsm_2kw.html">Flux-vector controlled 2.2-kW PMSM drive</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_vector_ctrl_pmsm_2kw.html">Vector-controlled 2.2-kW PMSM drive</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_flux_vector_syrm_7kw.html">Flux-vector-controlled 6.7-kW SyRM drive</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Vector-controlled 6.7-kW SyRM drive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_vector_ctrl_syrm_7kw.html">Vector-controlled 6.7-kW SyRM drive</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_signal_inj_pmsm_2kw.html">Vector-controlled 2.2-kW PMSM drive with signal injection</a></li>
-<li class="toctree-l4"><a class="reference internal" href="plot_signal_inj_syrm_7kw.html">Vector-controlled 6.7-kW SyRM drive with signal injection</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Vector-controlled 6.7-kW SyRM drive with signal injection</a></li>
 </ul>
 </li>
 </ul>
@@ -94,9 +94,9 @@
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../index.html">Examples</a> &raquo;</li>
           <li><a href="index.html">Synchronous Motor Drives</a> &raquo;</li>
-      <li>Vector-controlled 6.7-kW SyRM drive</li>
+      <li>Vector-controlled 6.7-kW SyRM drive with signal injection</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/auto_examples/sm/plot_vector_ctrl_syrm_7kw.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/auto_examples/sm/plot_signal_inj_syrm_7kw.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -106,15 +106,17 @@
              
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-sm-plot-vector-ctrl-syrm-7kw-py"><span class="std std-ref">here</span></a>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-sm-plot-signal-inj-syrm-7kw-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="vector-controlled-6-7-kw-syrm-drive">
-<span id="sphx-glr-auto-examples-sm-plot-vector-ctrl-syrm-7kw-py"></span><h1>Vector-controlled 6.7-kW SyRM drive<a class="headerlink" href="#vector-controlled-6-7-kw-syrm-drive" title="Permalink to this heading"></a></h1>
-<p>This example simulates sensorless vector control of a 6.7-kW SyRM drive.</p>
+<section class="sphx-glr-example-title" id="vector-controlled-6-7-kw-syrm-drive-with-signal-injection">
+<span id="sphx-glr-auto-examples-sm-plot-signal-inj-syrm-7kw-py"></span><h1>Vector-controlled 6.7-kW SyRM drive with signal injection<a class="headerlink" href="#vector-controlled-6-7-kw-syrm-drive-with-signal-injection" title="Permalink to this heading"></a></h1>
+<p>This example simulates sensorless vector control of a 6.7-kW SyRM drive.
+Square-wave signal injection is used with a simple phase-locked loop.</p>
 <p>Import the packages.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">motulator</span> <span class="k">as</span> <span class="nn">mt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 <p>Compute base values based on the nominal values (just for figures).</p>
@@ -123,48 +125,43 @@ to download the full example code</p>
 </pre></div>
 </div>
 <p>Configure the system model.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">motor</span> <span class="o">=</span> <span class="n">mt</span><span class="o">.</span><span class="n">SynchronousMotor</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">R_s</span><span class="o">=.</span><span class="mi">54</span><span class="p">,</span> <span class="n">L_d</span><span class="o">=</span><span class="mf">41.5e-3</span><span class="p">,</span> <span class="n">L_q</span><span class="o">=</span><span class="mf">6.2e-3</span><span class="p">,</span> <span class="n">psi_f</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">mech</span> <span class="o">=</span> <span class="n">mt</span><span class="o">.</span><span class="n">Mechanics</span><span class="p">(</span><span class="n">J</span><span class="o">=.</span><span class="mi">015</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Magnetically linear SyRM model</span>
+<span class="n">motor</span> <span class="o">=</span> <span class="n">mt</span><span class="o">.</span><span class="n">SynchronousMotor</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">R_s</span><span class="o">=.</span><span class="mi">54</span><span class="p">,</span> <span class="n">L_d</span><span class="o">=</span><span class="mf">41.5e-3</span><span class="p">,</span> <span class="n">L_q</span><span class="o">=</span><span class="mf">6.2e-3</span><span class="p">,</span> <span class="n">psi_f</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># You may also try the model of a saturated SyRM below</span>
+<span class="c1"># motor = mt.SynchronousMotorSaturated()</span>
+<span class="n">mech</span> <span class="o">=</span> <span class="n">mt</span><span class="o">.</span><span class="n">Mechanics</span><span class="p">(</span><span class="n">J</span><span class="o">=.</span><span class="mi">015</span><span class="p">,</span> <span class="n">B</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">conv</span> <span class="o">=</span> <span class="n">mt</span><span class="o">.</span><span class="n">Inverter</span><span class="p">()</span>
 <span class="n">mdl</span> <span class="o">=</span> <span class="n">mt</span><span class="o">.</span><span class="n">SynchronousMotorDrive</span><span class="p">(</span><span class="n">motor</span><span class="p">,</span> <span class="n">mech</span><span class="p">,</span> <span class="n">conv</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Configure the control system. You may also try to change the parameters.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pars</span> <span class="o">=</span> <span class="n">mt</span><span class="o">.</span><span class="n">SynchronousMotorVectorCtrlPars</span><span class="p">(</span>
-    <span class="n">sensorless</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<p>Configure the control system. (Note that the control system does not take
+the magnetic saturation into account, if you try the saturated model.)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pars</span> <span class="o">=</span> <span class="n">mt</span><span class="o">.</span><span class="n">SynchronousMotorSignalInjectionCtrlPars</span><span class="p">(</span>
     <span class="n">T_s</span><span class="o">=</span><span class="mf">250e-6</span><span class="p">,</span>
-    <span class="n">alpha_c</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">200</span><span class="p">,</span>
-    <span class="n">alpha_fw</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">alpha_c</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span>
     <span class="n">alpha_s</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
-    <span class="n">w_o</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">80</span><span class="p">,</span>  <span class="c1"># Used only in the sensorless mode</span>
-    <span class="n">tau_M_max</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">base</span><span class="o">.</span><span class="n">tau_nom</span><span class="p">,</span>
-    <span class="n">i_s_max</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">base</span><span class="o">.</span><span class="n">i</span><span class="p">,</span>
-    <span class="n">psi_s_min</span><span class="o">=.</span><span class="mi">5</span><span class="o">*</span><span class="n">base</span><span class="o">.</span><span class="n">psi</span><span class="p">,</span>  <span class="c1"># Can be 0 in the sensored mode</span>
-    <span class="n">k_u</span><span class="o">=.</span><span class="mi">95</span><span class="p">,</span>
+    <span class="n">w_o</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">40</span><span class="p">,</span>
+    <span class="n">U_inj</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
     <span class="n">w_nom</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mf">105.8</span><span class="p">,</span>
+    <span class="n">psi_s_min</span><span class="o">=.</span><span class="mi">5</span><span class="o">*</span><span class="n">base</span><span class="o">.</span><span class="n">psi</span><span class="p">,</span>
     <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">R_s</span><span class="o">=.</span><span class="mi">54</span><span class="p">,</span>
     <span class="n">L_d</span><span class="o">=</span><span class="mf">41.5e-3</span><span class="p">,</span>
     <span class="n">L_q</span><span class="o">=</span><span class="mf">6.2e-3</span><span class="p">,</span>
     <span class="n">psi_f</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-    <span class="n">J</span><span class="o">=.</span><span class="mi">015</span><span class="p">)</span>
-<span class="n">ctrl</span> <span class="o">=</span> <span class="n">mt</span><span class="o">.</span><span class="n">SynchronousMotorVectorCtrl</span><span class="p">(</span><span class="n">pars</span><span class="p">)</span>
-<span class="c1"># pars.plot_luts(base)  # Plot control look-up tables</span>
+    <span class="n">i_s_max</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">base</span><span class="o">.</span><span class="n">i</span><span class="p">,</span>
+    <span class="n">tau_M_max</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">base</span><span class="o">.</span><span class="n">tau_nom</span><span class="p">)</span>
+<span class="n">ctrl</span> <span class="o">=</span> <span class="n">mt</span><span class="o">.</span><span class="n">SynchronousMotorSignalInjectionCtrl</span><span class="p">(</span><span class="n">pars</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Set the speed reference and the external load torque.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Speed reference</span>
-<span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">125</span><span class="p">,</span> <span class="o">.</span><span class="mi">25</span><span class="p">,</span> <span class="o">.</span><span class="mi">375</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">625</span><span class="p">,</span> <span class="o">.</span><span class="mi">75</span><span class="p">,</span> <span class="o">.</span><span class="mi">875</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="mi">4</span>
-<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="n">base</span><span class="o">.</span><span class="n">w</span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">25</span><span class="p">,</span> <span class="o">.</span><span class="mi">25</span><span class="p">,</span> <span class="o">.</span><span class="mi">375</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">625</span><span class="p">,</span> <span class="o">.</span><span class="mi">75</span><span class="p">,</span> <span class="o">.</span><span class="mi">75</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="mi">4</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="n">base</span><span class="o">.</span><span class="n">w</span><span class="o">*.</span><span class="mi">1</span>
 <span class="n">ctrl</span><span class="o">.</span><span class="n">w_m_ref</span> <span class="o">=</span> <span class="n">mt</span><span class="o">.</span><span class="n">Sequence</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
 <span class="c1"># External load torque</span>
 <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">125</span><span class="p">,</span> <span class="o">.</span><span class="mi">125</span><span class="p">,</span> <span class="o">.</span><span class="mi">875</span><span class="p">,</span> <span class="o">.</span><span class="mi">875</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="mi">4</span>
 <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="n">base</span><span class="o">.</span><span class="n">tau_nom</span>
 <span class="n">mdl</span><span class="o">.</span><span class="n">mech</span><span class="o">.</span><span class="n">tau_L_ext</span> <span class="o">=</span> <span class="n">mt</span><span class="o">.</span><span class="n">Sequence</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
-
-<span class="c1"># Simple acceleration and load torque step</span>
-<span class="c1"># ctrl.w_m_ref = lambda t: (t &gt; .2)*(.5*base.w)</span>
-<span class="c1"># mdl.mech.tau_L_ext = lambda t: (t &gt; .75)*base.tau_nom</span>
 </pre></div>
 </div>
 <p>Create the simulation object and simulate it.</p>
@@ -173,16 +170,42 @@ to download the full example code</p>
 </pre></div>
 </div>
 <p>Plot results in per-unit values.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the &quot;basic&quot; figure</span>
+<span class="n">mt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">)</span>
+
+
+<span class="c1"># Plot also the angles</span>
+<span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="n">t_span</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Plot the angles.&quot;&quot;&quot;</span>
+    <span class="n">mdl</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">mdl</span><span class="o">.</span><span class="n">data</span>  <span class="c1"># Continuous-time data</span>
+    <span class="n">ctrl</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">ctrl</span><span class="o">.</span><span class="n">data</span>  <span class="c1"># Discrete-time data</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mdl</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">mdl</span><span class="o">.</span><span class="n">theta_m</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">theta_m</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;post&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span>
+        <span class="sa">r</span><span class="s1">&#39;$\vartheta_\mathrm</span><span class="si">{m}</span><span class="s1">$&#39;</span><span class="p">,</span>
+        <span class="sa">r</span><span class="s1">&#39;$\hat \vartheta_\mathrm</span><span class="si">{m}</span><span class="s1">$&#39;</span><span class="p">,</span>
+    <span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">t_span</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Electrical angle (rad)&#39;</span><span class="p">)</span>
+
+
+<span class="n">plot</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="n">t_span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_vector_ctrl_syrm_7kw_001.png" srcset="../../_images/sphx_glr_plot_vector_ctrl_syrm_7kw_001.png" alt="plot vector ctrl syrm 7kw" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  12.129 seconds)</p>
-<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-sm-plot-vector-ctrl-syrm-7kw-py">
+<ul class="sphx-glr-horizontal">
+<li><img src="../../_images/sphx_glr_plot_signal_inj_syrm_7kw_001.png" srcset="../../_images/sphx_glr_plot_signal_inj_syrm_7kw_001.png" alt="plot signal inj syrm 7kw" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_signal_inj_syrm_7kw_002.png" srcset="../../_images/sphx_glr_plot_signal_inj_syrm_7kw_002.png" alt="plot signal inj syrm 7kw" class = "sphx-glr-multi-img"/></li>
+</ul>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  11.937 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-sm-plot-signal-inj-syrm-7kw-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/356168dfa6d0beee6e02fe35948f7655/plot_vector_ctrl_syrm_7kw.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_vector_ctrl_syrm_7kw.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/4ff7bd459506fe497f6c26e0e05b03e6/plot_signal_inj_syrm_7kw.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_signal_inj_syrm_7kw.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/e789d8a1426a3af6ace610046862cf1f/plot_vector_ctrl_syrm_7kw.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_vector_ctrl_syrm_7kw.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/218c9a83f078e34483db6420d86841f3/plot_signal_inj_syrm_7kw.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_signal_inj_syrm_7kw.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -192,8 +215,8 @@ to download the full example code</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="plot_flux_vector_syrm_7kw.html" class="btn btn-neutral float-left" title="Flux-vector-controlled 6.7-kW SyRM drive" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="plot_signal_inj_pmsm_2kw.html" class="btn btn-neutral float-right" title="Vector-controlled 2.2-kW PMSM drive with signal injection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="plot_signal_inj_pmsm_2kw.html" class="btn btn-neutral float-left" title="Vector-controlled 2.2-kW PMSM drive with signal injection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../autoapi/index.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

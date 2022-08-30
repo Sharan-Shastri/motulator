@@ -161,6 +161,23 @@ Synchronous Motor Drives
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="This example simulates sensorless vector control of a 6.7-kW SyRM drive. Square-wave signal inj...">
+
+.. only:: html
+
+  .. image:: /auto_examples/sm/images/thumb/sphx_glr_plot_signal_inj_syrm_7kw_thumb.png
+    :alt: Vector-controlled 6.7-kW SyRM drive with signal injection
+
+  :ref:`sphx_glr_auto_examples_sm_plot_signal_inj_syrm_7kw.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Vector-controlled 6.7-kW SyRM drive with signal injection</div>
+    </div>
+
+
+.. raw:: html
+
     </div>
 
 
