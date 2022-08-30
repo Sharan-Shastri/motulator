@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>motulator.control.sm_flux_vector &mdash; motulator 0.1.0 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -101,7 +100,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-motulator.control.sm_flux_vector">
+  <div class="section" id="module-motulator.control.sm_flux_vector">
 <span id="motulator-control-sm-flux-vector"></span><h1><a class="reference internal" href="#module-motulator.control.sm_flux_vector" title="motulator.control.sm_flux_vector"><code class="xref py py-mod docutils literal notranslate"><span class="pre">motulator.control.sm_flux_vector</span></code></a><a class="headerlink" href="#module-motulator.control.sm_flux_vector" title="Permalink to this heading"></a></h1>
 <p>Flux-vector control for synchronous motor drives.</p>
 <p>This implements a simplified version of stator-flux-vector control <a class="reference internal" href="#ra0108916492f-1" id="id1">[1]</a>. The
@@ -111,27 +110,27 @@ choice differs from <a class="reference internal" href="#ra0108916492f-1" id="id
 is used. Furthermore, here proportional control is used for simplicity. The
 magnetic saturation is not considered in this implementation.</p>
 <p class="rubric">References</p>
-<div role="list" class="citation-list">
-<div class="citation" id="ra0108916492f-1" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id3">2</a>)</span>
-<p>Pellegrino, Armando, Guglielmi, “Direct flux field-oriented control of
+<dl class="citation">
+<dt class="label" id="ra0108916492f-1"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id3">2</a>)</span></dt>
+<dd><p>Pellegrino, Armando, Guglielmi, “Direct flux field-oriented control of
 IPM drives with variable DC link in the field-weakening region,” IEEE Trans.
 Ind. Appl., 2009, <a class="reference external" href="https://doi.org/10.1109/TIA.2009.2027167">https://doi.org/10.1109/TIA.2009.2027167</a></p>
-</div>
-<div class="citation" id="ra0108916492f-2" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id4">2</a>)</span>
-<p>Awan, Hinkkanen, Bojoi, Pellegrino, “Stator-flux-oriented control of
+</dd>
+<dt class="label" id="ra0108916492f-2"><span class="brackets">2</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id4">2</a>)</span></dt>
+<dd><p>Awan, Hinkkanen, Bojoi, Pellegrino, “Stator-flux-oriented control of
 synchronous motors: A systematic design procedure,” IEEE Trans. Ind. Appl.,
 2019, <a class="reference external" href="https://doi.org/10.1109/TIA.2019.2927316">https://doi.org/10.1109/TIA.2019.2927316</a></p>
-</div>
-</div>
-<section id="module-contents">
+</dd>
+</dl>
+<div class="section" id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
-<section id="classes">
+<div class="section" id="classes">
 <h3>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h3>
 <table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#motulator.control.sm_flux_vector.SynchronousMotorFluxVectorCtrlPars" title="motulator.control.sm_flux_vector.SynchronousMotorFluxVectorCtrlPars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SynchronousMotorFluxVectorCtrlPars</span></code></a></p></td>
 <td><p>Control parameters: flux-vector control for synchronous motor drives.</p></td>
@@ -269,7 +268,7 @@ synchronous motors: A systematic design procedure,” IEEE Trans. Ind. Appl.,
 <p>This class interconnects the subsystems of the control system and
 provides the interface to the solver.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>pars</strong> (<em>SynchronousMotoroFluxVectorCtrlPars</em>) – Control parameters.</p>
 </dd>
 </dl>
@@ -278,11 +277,11 @@ provides the interface to the solver.</p>
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mdl</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/motulator/control/sm_flux_vector.html#SynchronousMotorFluxVectorCtrl.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.control.sm_flux_vector.SynchronousMotorFluxVectorCtrl.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Run the main control loop.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>mdl</strong> (<a class="reference internal" href="../../index.html#motulator.SynchronousMotorDrive" title="motulator.SynchronousMotorDrive"><em>SynchronousMotorDrive</em></a>) – Continuous-time model of a synchronous motor drive for getting the
 feedback signals.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>T_s</strong> (<em>float</em>) – Sampling period.</p></li>
 <li><p><strong>d_abc_ref</strong> (<em>ndarray, shape (3,)</em>) – Duty ratio references.</p></li>
@@ -299,7 +298,7 @@ feedback signals.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">motulator.control.sm_flux_vector.</span></span><span class="sig-name descname"><span class="pre">FluxTorqueCtrl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/motulator/control/sm_flux_vector.html#FluxTorqueCtrl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.control.sm_flux_vector.FluxTorqueCtrl" title="Permalink to this definition"></a></dt>
 <dd><p>Stator flux and torque controller.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>pars</strong> (<em>SynchronousMotoroFluxVectorCtrlPars</em>) – Control parameters.</p>
 </dd>
 </dl>
@@ -308,7 +307,7 @@ feedback signals.</p>
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">psi_s_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_M_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi_s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u_dc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/motulator/control/sm_flux_vector.html#FluxTorqueCtrl.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.control.sm_flux_vector.FluxTorqueCtrl.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Compute the unlimited voltage reference.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>psi_s_ref</strong> (<em>float</em>) – Stator flux reference (magnitude).</p></li>
 <li><p><strong>tau_M_ref</strong> (<em>float</em>) – Torque reference.</p></li>
@@ -318,10 +317,10 @@ feedback signals.</p>
 <li><p><strong>u_dc</strong> (<em>float</em>) – DC-bus voltage.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>u_s_ref</strong> – Unlimited voltage reference.</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>complex</p>
 </dd>
 </dl>
@@ -334,7 +333,7 @@ feedback signals.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">motulator.control.sm_flux_vector.</span></span><span class="sig-name descname"><span class="pre">FluxTorqueRef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/motulator/control/sm_flux_vector.html#FluxTorqueRef"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.control.sm_flux_vector.FluxTorqueRef" title="Permalink to this definition"></a></dt>
 <dd><p>Flux and torque references.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>pars</strong> (<em>SynchronousMotoroFluxVectorCtrlPars</em>) – Control parameters.</p>
 </dd>
 </dl>
@@ -343,14 +342,14 @@ feedback signals.</p>
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau_M_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u_dc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/motulator/control/sm_flux_vector.html#FluxTorqueRef.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.control.sm_flux_vector.FluxTorqueRef.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Calculate the stator flux reference and limit the torque reference.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>tau_M_ref</strong> (<em>float</em>) – Unlimited torque reference.</p></li>
 <li><p><strong>w_m</strong> (<em>float</em>) – Rotor speed (in electrical rad/s).</p></li>
 <li><p><strong>u_dc</strong> (<em>float</em>) – DC-bus voltage.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>psi_s_ref</strong> (<em>float</em>) – Stator flux reference.</p></li>
 <li><p><strong>tau_M_ref_lim</strong> (<em>float</em>) – Limited torque reference.</p></li>
@@ -367,7 +366,7 @@ feedback signals.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">motulator.control.sm_flux_vector.</span></span><span class="sig-name descname"><span class="pre">Observer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/motulator/control/sm_flux_vector.html#Observer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.control.sm_flux_vector.Observer" title="Permalink to this definition"></a></dt>
 <dd><p>Sensored observer.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>pars</strong> (<em>SynchronousMotoroFluxVectorCtrlPars</em>) – Control parameters.</p>
 </dd>
 </dl>
@@ -376,7 +375,7 @@ feedback signals.</p>
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u_s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_m</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/motulator/control/sm_flux_vector.html#Observer.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.control.sm_flux_vector.Observer.update" title="Permalink to this definition"></a></dt>
 <dd><p>Update the states for the next sampling period.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>u_s</strong> (<em>complex</em>) – Stator voltage in estimated rotor coordinates.</p></li>
 <li><p><strong>i_s</strong> (<em>complex</em>) – Stator current in estimated rotor coordinates.</p></li>
@@ -388,9 +387,9 @@ feedback signals.</p>
 
 </dd></dl>
 
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>motulator.simulation &mdash; motulator 0.1.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -101,14 +100,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-motulator.simulation">
+  <div class="section" id="module-motulator.simulation">
 <span id="motulator-simulation"></span><h1><a class="reference internal" href="#module-motulator.simulation" title="motulator.simulation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">motulator.simulation</span></code></a><a class="headerlink" href="#module-motulator.simulation" title="Permalink to this heading"></a></h1>
 <p>Simulation environment.</p>
-<section id="module-contents">
+<div class="section" id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
-<section id="classes">
+<div class="section" id="classes">
 <h3>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h3>
 <table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#motulator.simulation.Delay" title="motulator.simulation.Delay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Delay</span></code></a></p></td>
 <td><p>Computational delay.</p></td>
@@ -121,10 +124,14 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="functions">
+</div>
+<div class="section" id="functions">
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h3>
 <table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#motulator.simulation.zoh" title="motulator.simulation.zoh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zoh</span></code></a>(T_s, d_abc)</p></td>
 <td><p>Zero-order hold of the duty ratios over the sampling period.</p></td>
@@ -137,7 +144,7 @@
 <dd><p>Computational delay.</p>
 <p>This models the computational delay as a ring buffer.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>length</strong> (<em>int</em><em>, </em><em>optional</em>) – Length of the buffer in samples. The default is 1.</p>
 </dd>
 </dl>
@@ -146,13 +153,13 @@
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/motulator/simulation.html#Delay.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.simulation.Delay.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Delay the input.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>u</strong> (<em>array_like</em><em>, </em><em>shape</em><em> (</em><em>elem</em><em>,</em><em>)</em>) – Input array.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Output array.</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>array_like, shape (elem,)</p>
 </dd>
 </dl>
@@ -162,14 +169,14 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="motulator.simulation.CarrierCmp">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">motulator.simulation.</span></span><span class="sig-name descname"><span class="pre">CarrierCmp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span> <span class="pre">**</span> <span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_complex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/motulator/simulation.html#CarrierCmp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.simulation.CarrierCmp" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">motulator.simulation.</span></span><span class="sig-name descname"><span class="pre">CarrierCmp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2**12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_complex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/motulator/simulation.html#CarrierCmp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.simulation.CarrierCmp" title="Permalink to this definition"></a></dt>
 <dd><p>Carrier comparison.</p>
 <p>This computes the the switching states and their durations based on the
 duty ratios. Instead of searching for zero crossings, the switching
 instants are explicitly computed in the beginning of each sampling period,
 allowing faster simulations.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>N</strong> (<em>int</em><em>, </em><em>optional</em>) – Amount of the counter quantization levels. The default is 2**12.</p></li>
 <li><p><strong>return_complex</strong> (<em>bool</em><em>, </em><em>optional</em>) – Complex switching state space vectors are returned if True. Otherwise
@@ -219,13 +226,13 @@ phase switching states are returned. The default is True.</p></li>
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T_s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_abc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/motulator/simulation.html#CarrierCmp.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.simulation.CarrierCmp.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Compute the switching state durations and vectors.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>T_s</strong> (<em>float</em>) – Half carrier period.</p></li>
 <li><p><strong>d_abc</strong> (<em>array_like of floats</em><em>, </em><em>shape</em><em> (</em><em>3</em><em>,</em><em>)</em>) – Duty ratios in the range [0, 1].</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>t_steps</strong> (<em>ndarray, shape (4,)</em>) – Switching state durations, <cite>[t0, t1, t2, t3]</cite>.</p></li>
 <li><p><strong>q</strong> (<em>complex ndarray, shape (4,)</em>) – Switching state vectors, <cite>[q0, q1, q2, q3]</cite>, where <cite>q1</cite> and <cite>q2</cite>
@@ -246,13 +253,13 @@ are active vectors.</p></li>
 <span class="sig-prename descclassname"><span class="pre">motulator.simulation.</span></span><span class="sig-name descname"><span class="pre">zoh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T_s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_abc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/motulator/simulation.html#zoh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.simulation.zoh" title="Permalink to this definition"></a></dt>
 <dd><p>Zero-order hold of the duty ratios over the sampling period.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>T_s</strong> (<em>float</em>) – Sampling period.</p></li>
 <li><p><strong>d_abc</strong> (<em>array_like of floats</em><em>, </em><em>shape</em><em> (</em><em>3</em><em>,</em><em>)</em>) – Duty ratios in the range [0, 1].</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>t_steps</strong> (<em>ndarray, shape (1,)</em>) – Sampling period as an array compatible with the solver.</p></li>
 <li><p><strong>q</strong> (<em>complex ndarray, shape (1,)</em>) – Duty ratio vector as an array compatible with the solver.</p></li>
@@ -268,7 +275,7 @@ are active vectors.</p></li>
 <dd><p>Simulation environment.</p>
 <p>Each simulation object has a system model object and a controller object.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mdl</strong> (<a class="reference internal" href="../index.html#motulator.InductionMotorDrive" title="motulator.InductionMotorDrive"><em>InductionMotorDrive</em></a><em> | </em><a class="reference internal" href="../index.html#motulator.SynchronousMotorDrive" title="motulator.SynchronousMotorDrive"><em>SynchronousMotorDrive</em></a>) – Continuous-time system model.</p></li>
 <li><p><strong>ctrl</strong> (<a class="reference internal" href="../control/common/index.html#motulator.control.common.Ctrl" title="motulator.control.common.Ctrl"><em>Ctrl</em></a>) – Discrete-time controller.</p></li>
@@ -282,7 +289,7 @@ are active vectors.</p></li>
 <span class="sig-name descname"><span class="pre">simulate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t_stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">np.inf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/motulator/simulation.html#Simulation.simulate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.simulation.Simulation.simulate" title="Permalink to this definition"></a></dt>
 <dd><p>Solve the continuous-time model and call the discrete-time controller.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>t_stop</strong> (<em>float</em><em>, </em><em>optional</em>) – Simulation stop time. The default is 1.</p></li>
 <li><p><strong>max_step</strong> (<em>float</em><em>, </em><em>optional</em>) – Max step size of the solver. The default is inf.</p></li>
@@ -299,7 +306,7 @@ simplicity, only max_step is included as an option of this method.</p>
 <span class="sig-name descname"><span class="pre">save_mat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sim'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/motulator/simulation.html#Simulation.save_mat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.simulation.Simulation.save_mat" title="Permalink to this definition"></a></dt>
 <dd><p>Save the simulation data into MATLAB .mat files.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – Name for the simulation instance. The default is ‘sim’.</p>
 </dd>
 </dl>
@@ -307,9 +314,9 @@ simplicity, only max_step is included as an option of this method.</p>
 
 </dd></dl>
 
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>

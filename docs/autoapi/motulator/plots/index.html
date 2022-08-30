@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>motulator.plots &mdash; motulator 0.1.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -101,14 +100,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-motulator.plots">
+  <div class="section" id="module-motulator.plots">
 <span id="motulator-plots"></span><h1><a class="reference internal" href="#module-motulator.plots" title="motulator.plots"><code class="xref py py-mod docutils literal notranslate"><span class="pre">motulator.plots</span></code></a><a class="headerlink" href="#module-motulator.plots" title="Permalink to this heading"></a></h1>
 <p>Example plotting scripts.</p>
-<section id="module-contents">
+<div class="section" id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
-<section id="functions">
+<div class="section" id="functions">
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h3>
 <table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#motulator.plots.plot" title="motulator.plots.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>(sim[, t_span, base])</p></td>
 <td><p>Plot example figures.</p></td>
@@ -128,7 +131,7 @@
 <p>Plots figures in per-unit values, if the base values are given. Otherwise
 SI units are used.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>sim</strong> (<em>Simulation object</em>) – Should contain the simulated data.</p></li>
 <li><p><strong>t_span</strong> (<em>2-tuple</em><em>, </em><em>optional</em>) – Time span. The default is (0, sim.ctrl.t[-1]).</p></li>
@@ -143,7 +146,7 @@ SI units are used.</p>
 <span class="sig-prename descclassname"><span class="pre">motulator.plots.</span></span><span class="sig-name descname"><span class="pre">plot_extra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_span</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1.1,</span> <span class="pre">1.125)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/motulator/plots.html#plot_extra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.plots.plot_extra" title="Permalink to this definition"></a></dt>
 <dd><p>Plot extra waveforms for a motor drive with a diode bridge.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>sim</strong> (<em>Simulation object</em>) – Should contain the simulated data.</p></li>
 <li><p><strong>t_span</strong> (<em>2-tuple</em><em>, </em><em>optional</em>) – Time span. The default is (1.1, 1.125).</p></li>
@@ -160,7 +163,7 @@ SI units are used.</p>
 <p>This saves figures in a folder “figures” in the current directory. If the
 folder doesn’t exist, it is created.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>string</em>) – Name for the figure</p></li>
 <li><p><strong>plt</strong> (<em>object</em>) – Handle for the figure to be saved</p></li>
@@ -169,9 +172,9 @@ folder doesn’t exist, it is created.</p>
 </dl>
 </dd></dl>
 
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>

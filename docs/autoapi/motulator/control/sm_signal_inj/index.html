@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>motulator.control.sm_signal_inj &mdash; motulator 0.1.0 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -101,7 +100,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-motulator.control.sm_signal_inj">
+  <div class="section" id="module-motulator.control.sm_signal_inj">
 <span id="motulator-control-sm-signal-inj"></span><h1><a class="reference internal" href="#module-motulator.control.sm_signal_inj" title="motulator.control.sm_signal_inj"><code class="xref py py-mod docutils literal notranslate"><span class="pre">motulator.control.sm_signal_inj</span></code></a><a class="headerlink" href="#module-motulator.control.sm_signal_inj" title="Permalink to this heading"></a></h1>
 <p>Sensorless control with signal injection for synchronous motor drives.</p>
 <p>This module contains a simple example of square-wave signal injection for low-
@@ -109,11 +108,15 @@ speed operation. A phase-locked loop is used to track the rotor position. For
 a wider speed range, signal injection could be combined to a model-based
 observer. The effects of magnetic saturation are not compensated for in this
 version.</p>
-<section id="module-contents">
+<div class="section" id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
-<section id="classes">
+<div class="section" id="classes">
 <h3>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h3>
 <table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#motulator.control.sm_signal_inj.SynchronousMotorSignalInjectionCtrlPars" title="motulator.control.sm_signal_inj.SynchronousMotorSignalInjectionCtrlPars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SynchronousMotorSignalInjectionCtrlPars</span></code></a></p></td>
 <td><p>Square-wave signal injection parameters.</p></td>
@@ -149,7 +152,7 @@ version.</p>
 <p>This class interconnects the subsystems of the control system and
 provides the interface to the solver.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>pars</strong> (<a class="reference internal" href="../sm_vector/index.html#motulator.control.sm_vector.SynchronousMotorVectorCtrlPars" title="motulator.control.sm_vector.SynchronousMotorVectorCtrlPars"><em>SynchronousMotorVectorCtrlPars</em></a>) – Control parameters.</p>
 </dd>
 </dl>
@@ -158,11 +161,11 @@ provides the interface to the solver.</p>
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mdl</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/motulator/control/sm_signal_inj.html#SynchronousMotorSignalInjectionCtrl.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.control.sm_signal_inj.SynchronousMotorSignalInjectionCtrl.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Run the main control loop.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>mdl</strong> (<a class="reference internal" href="../../index.html#motulator.SynchronousMotorDrive" title="motulator.SynchronousMotorDrive"><em>SynchronousMotorDrive</em></a>) – Continuous-time model of a synchronous motor drive for getting the
 feedback signals.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>T_s</strong> (<em>float</em>) – Sampling period.</p></li>
 <li><p><strong>d_abc_ref</strong> (<em>ndarray, shape (3,)</em>) – Duty ratio references.</p></li>
@@ -183,31 +186,30 @@ the injected switching frequency signal, according to <a class="reference intern
 can be used in a phase-locked loop or in a state observer to robustify
 low-speed sensorless operation.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>pars</strong> (<a class="reference internal" href="#motulator.control.sm_signal_inj.SynchronousMotorSignalInjectionCtrlPars" title="motulator.control.sm_signal_inj.SynchronousMotorSignalInjectionCtrlPars"><em>SynchronousMotorSignalInjectionCtrlPars</em></a>) – Control parameters.</p>
 </dd>
 </dl>
 <p class="rubric">References</p>
-<div role="list" class="citation-list">
-<div class="citation" id="r50acc62e7f3b-1" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>Kim, Ha, Sul, “PWM switching frequency signal injection sensorless
+<dl class="citation">
+<dt class="label" id="r50acc62e7f3b-1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Kim, Ha, Sul, “PWM switching frequency signal injection sensorless
 method in IPMSM,” IEEE Trans. Ind. Appl., 2012,
 <a class="reference external" href="https://doi.org/10.1109/TIA.2012.2210175">https://doi.org/10.1109/TIA.2012.2210175</a></p>
-</div>
-</div>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="motulator.control.sm_signal_inj.SignalInjection.output">
 <span class="sig-name descname"><span class="pre">output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_sq</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/motulator/control/sm_signal_inj.html#SignalInjection.output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.control.sm_signal_inj.SignalInjection.output" title="Permalink to this definition"></a></dt>
 <dd><p>Compute the rotor position estimation error.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>i_sq</strong> (<em>float</em>) – Stator current q-component in estimated rotor coordinates.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>err</strong> – Rotor position estimation error.</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>float</p>
 </dd>
 </dl>
@@ -218,7 +220,7 @@ method in IPMSM,” IEEE Trans. Ind. Appl., 2012,
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_s</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/motulator/control/sm_signal_inj.html#SignalInjection.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.control.sm_signal_inj.SignalInjection.update" title="Permalink to this definition"></a></dt>
 <dd><p>Store the old current values for the next sampling period.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>i_s</strong> (<em>complex</em>) – Stator current in estimated rotor coordinates.</p>
 </dd>
 </dl>
@@ -229,13 +231,13 @@ method in IPMSM,” IEEE Trans. Ind. Appl., 2012,
 <span class="sig-name descname"><span class="pre">filter_current</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_s</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/motulator/control/sm_signal_inj.html#SignalInjection.filter_current"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.control.sm_signal_inj.SignalInjection.filter_current" title="Permalink to this definition"></a></dt>
 <dd><p>Filter the stator current using the previously measured value.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>i_s</strong> (<em>complex</em>) – Unfiltered stator current in estimated rotor coordinates.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>i_s_filt</strong> – Filtered stator current in estimated rotor coordinates.</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>complex</p>
 </dd>
 </dl>
@@ -248,7 +250,7 @@ method in IPMSM,” IEEE Trans. Ind. Appl., 2012,
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">motulator.control.sm_signal_inj.</span></span><span class="sig-name descname"><span class="pre">PhaseLockedLoop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/motulator/control/sm_signal_inj.html#PhaseLockedLoop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.control.sm_signal_inj.PhaseLockedLoop" title="Permalink to this definition"></a></dt>
 <dd><p>Simple phase-locked loop for rotor-position estimation.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>pars</strong> (<a class="reference internal" href="../sm_vector/index.html#motulator.control.sm_vector.SynchronousMotorVectorCtrlPars" title="motulator.control.sm_vector.SynchronousMotorVectorCtrlPars"><em>SynchronousMotorVectorCtrlPars</em></a>) – Control parameters.</p>
 </dd>
 </dl>
@@ -257,7 +259,7 @@ method in IPMSM,” IEEE Trans. Ind. Appl., 2012,
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">err</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/motulator/control/sm_signal_inj.html#PhaseLockedLoop.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#motulator.control.sm_signal_inj.PhaseLockedLoop.update" title="Permalink to this definition"></a></dt>
 <dd><p>Update the states for the next sampling period.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>err</strong> (<em>Rotor position error.</em>) – </p>
 </dd>
 </dl>
@@ -265,9 +267,9 @@ method in IPMSM,” IEEE Trans. Ind. Appl., 2012,
 
 </dd></dl>
 
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>
